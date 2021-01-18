@@ -12,16 +12,7 @@ package clases;
 public class Retencion {
     private float salario, retencion, salarioNeto;
 
-    public Retencion(String salario) {
-        this.salario = Float.parseFloat(salario);
-        if ((this.salario>1000) && (this.salario<=3000)){
-            this.retencion = 10;
-        } else if ((this.salario>3000)){
-            this.retencion = 20;
-        } else {
-            this.retencion = 0;
-        }
-        this.salarioNeto = this.salario - (this.salario*(this.retencion/100));
+    public Retencion() {
     }
 
     public float getSalario() {
@@ -34,6 +25,26 @@ public class Retencion {
 
     public float getSalarioNeto() {
         return salarioNeto;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+        if ((this.salario>1000) && (this.salario<=3000)){
+            this.retencion = 10;
+        } else if ((this.salario>3000)){
+            this.retencion = 20;
+        } else {
+            this.retencion = 0;
+        }
+        this.salarioNeto = this.salario - (this.salario*(this.retencion/100));
+    }
+
+    public void setRetencion(float retencion) {
+        this.retencion = retencion;
+    }
+
+    public void setSalarioNeto(float salarioNeto) {
+        this.salarioNeto = salarioNeto;
     }
 
     

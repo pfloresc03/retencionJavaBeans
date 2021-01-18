@@ -14,14 +14,14 @@
     <body>
         <% String nombre=request.getParameter("nombre"); %>
         <h1><%= nombre %></h1>
-        <%@page import="clases.Retencion" %>
+        <jsp:useBean id="ret" class="clases.Retencion"/>
         <% 
-            String bruto = request.getParameter("salario");
-            Retencion miRetencion = new Retencion(bruto);
+            Float bruto = Float.parseFloat(request.getParameter("salario"));
         %>
-        <h3>El salario bruto es: <%= miRetencion.getSalario() %></h3>
-        <h3>La retencion es del <%= miRetencion.getRetencion() %>%</h3>
-        <h3>El salario neto es: <%= miRetencion.getSalarioNeto() %></h3>
+        <jsp:setProperty name="ret" property="salario" value="<%= bruto %>"/>
+        <h3>El salario bruto es: <jsp:getProperty name="ret" property="salario" /></h3>
+        <h3>La retencion es del <jsp:getProperty name="ret" property="retencion" />%</h3>
+        <h3>El salario neto es: <jsp:getProperty name="ret" property="salarioNeto" /></h3>
         
     </body>
 </html>
